@@ -179,14 +179,25 @@ scoring = r2
 ### Model Evaluation and Analysis
 
 #### Visual Evaluation
-![download](https://user-images.githubusercontent.com/96771321/214905029-f0b2d05a-14f8-4ceb-a673-4c599aadd426.png)
-![download](https://user-images.githubusercontent.com/96771321/214905092-078e2308-02b9-45cc-92e3-b2ce81cd6d58.png)
-![download](https://user-images.githubusercontent.com/96771321/214905140-0b05e3c0-aab4-4404-999f-6c5f331f5fc4.png)
+<center>
+    <img src="https://user-images.githubusercontent.com/96771321/214905029-f0b2d05a-14f8-4ceb-a673-4c599aadd426.png" width="500" alt="cognitiveclass.ai logo" />
+</center>
+
+<center>
+    <img src="https://user-images.githubusercontent.com/96771321/214905092-078e2308-02b9-45cc-92e3-b2ce81cd6d58.png" width="500" alt="cognitiveclass.ai logo" />
+</center>
+
+<center>
+    <img src="https://user-images.githubusercontent.com/96771321/214905140-0b05e3c0-aab4-4404-999f-6c5f331f5fc4.png" width="500" alt="cognitiveclass.ai logo" />
+</center>
+
 
 #### Feature Importance
 Using 'model.feature_importances_' from the Extra Trees model we obtained the level of importances of each features towards prediction the price.
 
-![download](https://user-images.githubusercontent.com/96771321/214904894-a92ca1dc-0189-4a84-adf2-1455d52c18d2.png)
+<center>
+    <img src="https://user-images.githubusercontent.com/96771321/214904894-a92ca1dc-0189-4a84-adf2-1455d52c18d2.png" width="500" alt="cognitiveclass.ai logo" />
+</center>
 
 #### Final Result
 
