@@ -1,4 +1,5 @@
-### Car Price Prediction
+# Car Price Prediction
+![car](https://user-images.githubusercontent.com/96771321/214902051-e184f7e2-d64e-4cb0-b369-cdc0faa6699e.jpg)
 
 ### INTRODUCTION
 #### Objectives
@@ -22,89 +23,6 @@ The following are the description of each columns in the dataset:
 - ***crossover_car_and_van:*** A boolean (yes if the vehicle is a crossover car and van or No if its not)
 - ***fuel_type:*** the type of fuel consumed by the vehicle
 
-####  Analysis of Univariate Distributions
-
-The image below shows the code and output which contains the columns, number of observations and datatype of each features
-
-![info.jpg](attachment:99cd26d7-69f8-4c2a-a9a8-c0407fdcc96f.jpg)
-
-##### Some Univariate visualization
-
-![mileage.png](attachment:8364f72a-faef-410e-a82e-8e6071a8ce71.png)
-
-**Insight:**
-- Multiple outliers available
-- Majority of car mileage are below 200,000
-
-![reg_code.png](attachment:1422ee2b-8579-4b8d-baf2-3e83c29f8e50.png)
-
-**Insight:** 17, 67, 66 respectively are the top 3 most popular registration code
-
-![standard_color.png](attachment:b5776dfd-1d05-4de6-9a13-279bbd21d79c.png)
-
-**Insight:** Black, White, Grey, Blue, Silver are the top 5 most popular color 
-
-![standard_make.png](attachment:29b80540-21c6-4e81-9a3a-5b9387d094cf.png)
-
-**Insight:**
-BMW, Audi, Volswagwn, Vauxhall, Mercedes-Benz are the top 5 most popular vehicle brand
-
-![vehicle_condition.png](attachment:1e3534e2-7fd9-4606-b029-c40576389528.png)
-
-**Insight:**
-Majority of the vehicles in the dataset are USED vehicles
-
-![year_of_registration.png](attachment:66c9a342-c03d-434c-a4d1-b04063ea2457.png)
-
-**Insight:**
-Most of the vehicles were registarted in 2017
-
-![price.png](attachment:c4e4aa66-9b9c-4920-a418-873fccca90a8.png)
-
-**Insight:**
-- Possible outliers approaching 10M
-- Most cars are below 500,000
-
-![body_type.png](attachment:887459bc-3c0a-4dec-b0d0-7399c5c14ee0.png)
-
-**Insight:**
-Hatchback and SUV are the most popular body type of vehicle in the dataset
-
-![crossover_car_and_van.png](attachment:dab185ea-2520-49d6-a6c7-ba0b7371e78f.png)
-
-**Insight:**
-Majority of the vehicles are not crossover car and van
-
-![fuel_type.png](attachment:10760a4d-4a6a-4437-a6fb-6e5f97caacb8.png)
-
-**Insight:**
-Petrol and Diesel are the top most popular fuel type used by vehicles in the dataset
-
-####  Analysis of Predictive Power of Features
-
-The column 'reg_code' is dropped because registration code is related to year of registration,
-'public_reference' is dropped because it is just the id and has no predictive power.
-
-The features chosen to predict the price are:
-- mileage
-- standard_make
-- standard_model
-- vehicle_condition
-- year_of_registration
-- body_type
-- crossover_car_and_van
-- fuel_type
-
-##### mileage
-
-![mileage_price.png](attachment:85d6dffc-6112-45dc-bcfb-84125589aad2.png)
-
-**Insights:**
-Highly priced vehicle has relatively low mileage and vice versa
-
-##### year_of_registraion
-
-![year_price.png](attachment:4c30abef-6331-4ee7-b5a5-d178d1e89d18.png)
 
 #### Data Processing for Data Exploration and Visualisation
 
@@ -151,9 +69,6 @@ The following featues had missing values
 > - replaced values of year_of_registration where vehicle_condition is NEW with '2020'. 
 > - Then we obtain other values of year_of_registration from reg_code.
 > - The rows with the missing values were dropped.
-> - Example  of the code for cleaning year_of_registration
-
-> ![year_code.jpg](attachment:a1f45637-9727-4b32-90ab-e62ccb0ce2c3.jpg)
 
 
 ##### 4. body_type:
@@ -264,21 +179,17 @@ scoring = r2
 ### Model Evaluation and Analysis
 
 #### Visual Evaluation
-
-![linear_reg.png](attachment:c8e3bcac-6532-4400-8512-499f7de85ec4.png)
-
-![random_forest.png](attachment:601787b0-b785-4610-8192-44b28642e59a.png)
-
-![extra_trees.png](attachment:a6ed4368-01e4-43e9-b28a-7788d079b6cf.png)
+![download](https://user-images.githubusercontent.com/96771321/214905029-f0b2d05a-14f8-4ceb-a673-4c599aadd426.png)
+![download](https://user-images.githubusercontent.com/96771321/214905092-078e2308-02b9-45cc-92e3-b2ce81cd6d58.png)
+![download](https://user-images.githubusercontent.com/96771321/214905140-0b05e3c0-aab4-4404-999f-6c5f331f5fc4.png)
 
 #### Feature Importance
 Using 'model.feature_importances_' from the Extra Trees model we obtained the level of importances of each features towards prediction the price.
 
-![feature_import.png](attachment:a7ad6de7-e577-4cd5-a966-97f5b58460fd.png)
+![download](https://user-images.githubusercontent.com/96771321/214904894-a92ca1dc-0189-4a84-adf2-1455d52c18d2.png)
 
 #### Final Result
 
-![results.jpg](attachment:8eb35b49-0870-4096-9021-5670768bea7b.jpg)
+![download](https://user-images.githubusercontent.com/96771321/214904952-2142b55d-593b-4563-aa14-24bf2f44128e.jpg)
 
 From the above results and evaluations, the ExtraTrees model is the best for prediction the price of vehicles in the dataset.
-# Car-Price_Prediction
