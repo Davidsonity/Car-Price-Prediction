@@ -1,5 +1,6 @@
 # Car Price Prediction
 ![car](https://user-images.githubusercontent.com/96771321/214902051-e184f7e2-d64e-4cb0-b369-cdc0faa6699e.jpg)
+View notebook @ https://github.com/Davidsonity/Car-Price-Prediction/blob/main/notebook.ipynb
 
 ### INTRODUCTION
 #### Objectives
