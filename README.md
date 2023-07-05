@@ -1,207 +1,72 @@
 # Car Price Prediction
+
 ![car](https://user-images.githubusercontent.com/96771321/214902051-e184f7e2-d64e-4cb0-b369-cdc0faa6699e.jpg)
 View notebook @ https://github.com/Davidsonity/Car-Price-Prediction/blob/main/notebook.ipynb
 
-### INTRODUCTION
-#### Objectives
-The objective of this project is to to produce a regression model for predicting the selling price given the characteristics of
-the cars in the historical data given.
+This project aims to develop a regression model to predict the selling price of cars based on their characteristics. The dataset used in this project contains historical data of car sale adverts, including various features such as brand, type, color, mileage, and year of registration.
 
-#### About Dataset
-The dataset is a Car Sale Adverts dataset provided by AutoTrader(AT), one of our industry partners. The dataset contains 12 features and over 40,000 observations an anonymised collection of adverts with information on vehicles such as brand, type, colour, mileage, as well as the selling price.
+## Dataset Description
 
-The following are the description of each columns in the dataset:
-- ***public_reference:*** key id of vehicle
-- ***mileage:*** a number of miles travelled or covered
-- ***reg_code:*** a sequence of letters and numbers assigned to a motor vehicle when it is registered
-- ***standard_colour:*** colour of motor vehicle
-- ***standard_make:*** vehicle automotive brand
-- ***standard_model:*** specific model of a vehicle brand
-- ***vehicle_condition:*** condition of the vehicle i.e used or new
-- ***year_of_registration:*** the year a vehicle was registration
-- ***price:*** the price of the vehicle
-- ***body_type:*** body type of the vehicle
-- ***crossover_car_and_van:*** A boolean (yes if the vehicle is a crossover car and van or No if its not)
-- ***fuel_type:*** the type of fuel consumed by the vehicle
+The dataset consists of a collection of car sale adverts with over 40,000 observations and 12 features. Each observation represents a car advert and includes the following columns:
 
+- `public_reference`: A unique ID for each vehicle.
+- `mileage`: The number of miles traveled or covered by the vehicle.
+- `reg_code`: The registration code assigned to the motor vehicle.
+- `standard_color`: The color of the motor vehicle.
+- `standard_make`: The automotive brand of the vehicle.
+- `standard_model`: The specific model of the vehicle.
+- `vehicle_condition`: The condition of the vehicle (used or new).
+- `year_of_registration`: The year when the vehicle was registered.
+- `price`: The selling price of the vehicle.
+- `body_type`: The body type of the vehicle.
+- `crossover_car_and_van`: A boolean value indicating if the vehicle is a crossover car and van.
+- `fuel_type`: The type of fuel consumed by the vehicle.
 
-#### Data Processing for Data Exploration and Visualisation
+## Project Overview
 
-Plotly which is a python library was used to plot charts. The data in the exploration stage is not preprocessed but just assesed and analyzed using pandas and plotly.
+The main objective of this project is to develop a regression model that can accurately predict the selling price of cars based on their characteristics. The project follows the following steps:
 
-Example of the code used to plot price distribution
+1. **Data Understanding and Exploration**: In this phase, the dataset is analyzed to gain insights into the features, distributions, and relationships between variables. Visualizations and statistical analysis are performed to understand the data better.
 
+2. **Data Preprocessing**: This phase involves handling missing values, outliers, and noise in the dataset. Data cleaning techniques such as imputation, removal of outliers, and normalization are applied to ensure the quality and reliability of the data.
 
-`fig = px.scatter(df, y='mileage', x='price')`
+3. **Feature Engineering**: The dataset is transformed by creating new features or modifying existing ones to enhance the predictive power of the model. Feature engineering techniques such as one-hot encoding, label encoding, and feature scaling are employed to prepare the data for model training.
 
-`fig.update_layout(`
+4. **Model Development**: Various regression algorithms such as Linear Regression, Random Forest, and Extra Trees are trained on the preprocessed data. The models learn the patterns and relationships between the features and the target variable (selling price) to make accurate predictions.
 
-`    title = 'Mileage Against Price',`
+5. **Model Evaluation**: The trained models are evaluated using appropriate evaluation metrics such as mean squared error (MSE) or R-squared to measure their performance. The models are compared, and the best-performing model is selected based on its predictive accuracy and generalization ability.
 
-`    xaxis_title = 'Price',`
+6. **Model Deployment**: Once the best model is selected, it can be deployed in a production environment to predict the selling price of cars based on their characteristics. The model can be integrated into a web application or used as an API to provide real-time predictions.
 
-`    yaxis_title = 'Mileage'`
+## Repository Structure
 
-`)`
-   
-`fig.show(renderer='png')`
+The repository structure is as follows:
 
+- `LICENSE`: The license file specifying the terms of use for the project.
+- `README.md`: This file providing an overview, explanation, and instructions for the project.
+- `Report.ipynb`: A Jupyter notebook containing a detailed report of the project, including data exploration, preprocessing, feature engineering, model development, and evaluation.
+- `adverts.csv`: The dataset file in CSV format containing the car sale adverts data.
+- `notebook.ipynb`: An alternative version of the Jupyter notebook, containing the code for data exploration, preprocessing, feature engineering, model development, and evaluation.
 
-### Data Processing for Machine Learning
+## Usage
 
-####  Dealing with Missing Values, Outliers and Noise
+To run the project, follow these steps:
 
-##### Missing Values
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies, including Python
 
-The following featues had missing values
-- mileage
-- standard_color
-- year_of_registration
-- body_type
-- fuel_type
+ and Jupyter Notebook.
+3. Open the Jupyter Notebook (`Report.ipynb` or `notebook.ipynb`) using Jupyter Notebook software.
+4. Run each cell in the notebook sequentially to execute the code and generate the results.
+5. Follow the instructions provided in the notebook for data preprocessing, model training, and evaluation.
+6. Analyze the results, including visualizations and model performance metrics, to understand the predictions and choose the best model.
 
-##### 1. mileage:
-> rows with missing values were dropped.
+Note: Make sure to have the `adverts.csv` dataset file in the same directory as the notebook.
 
-##### 2. standard_color:
-> replaced missing values with most frequent color(mode)
+## Conclusion
 
-##### 3. year_of_registration:
-> - replaced values of year_of_registration where vehicle_condition is NEW with '2020'. 
-> - Then we obtain other values of year_of_registration from reg_code.
-> - The rows with the missing values were dropped.
+This project aims to develop a regression model for predicting the selling price of cars based on their characteristics. By following the steps of data exploration, preprocessing, feature engineering, model development, and evaluation, we aim to build an accurate and reliable prediction model. The trained model can be used to predict car prices in real-world scenarios, aiding car sellers, buyers, and industry professionals in making informed decisions.
 
+For more details, please refer to the complete report in the `Report.ipynb` notebook.
 
-##### 4. body_type:
-> - replaced values with the mode of body_type for vehicles with similar standard_make and standard_model. 
-> - The rows with the missing values were dropped.
-
-##### 5. fuel_type:
-> - replaced values with the mode of fuel_type for vehicles with similar standard_make and standard_model. 
-> - The rows with the missing values were dropped.
-
-##### Outliers and Noise
-Outliers are present in the following features:
-- mileage
-- price
-
-##### 1. mileage:
-> set cap of mileage to 200,000.
-
-##### 2. price:
-> set cap of price to 800,000.
-
-#### Feature Engineering, Data Transformations, Feature Selection
-
-**STEP1:** The features were seperated into predictors(x) and target(y).
-
-The predictors(x) includes:
-- mileage
-- standard_make
-- standard_model
-- vehicle_condition
-- year_of_registration
-- body_type
-- crossover_car_and_van
-- fuel_type
-
-The target(y):
-- price(target)
-
-**STEP2:** Using sklearn's LabelEncoder module, Label encoding was done on categorical features
-- standard_make
-- standard_model
-- body_type
-- fuel_type.
-
-**STEP3:** One hot encoding on binary features
-- vehicle_condition
-- crossover_car_and_van
-
-**STEP4:** Convert boolean column crossover_car_and_van to int using ".astype(int)"
-
-**STEP5:** Check to make sure the datatypes are numeric.
-
-**STEP6:** Split the data into training and testing data by calling sklearn's train_test_split module
-
-### Model Building
-
-#### Algorithm Selection, Model Instantiation and Configuration
-
-##### Algorithm Selection
-
-For this project we made use of the follwoing algorithm:
-- Linear Regression Algorithm
-- Random Forest Algorithm
-- Extra Trees Algorithm
-
-##### Model Instantiation and Configuration
-
-Model instantiation and configuration follows the samae pathern.
-
-**STEP1:** Import the algorithm from sklearn with the syntax:
-- from sklearn.linear_model import LinearRegression
-- from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
-
-**STEP2:** Instantiate the model by assigning it to a variable, i.e.
-- model = LinearRegression()
-- model = RandomForestRegressor() etc.
-
-**STEP3:** Train model by calling '.fit' on the training data, i.e.
-- model.fit(x_train, y_train)
-
-#### Grid Search, and Model Ranking and Selection
-
-##### Grid Search
-
-Grid Search was applied on the Random Forest Agorithm and ExtraTrees Algorithm.
-The parameters searched on include:
-
-params_grid = {
-'max_depth': [25, 50],
-'n_estimators': [100, 200],
-'min_samples_split': [2, 5]
-}
-
-The validation was done on 5 fold i.e.
-cv = 5
-
-The evaluation metric used in scoring the parameters is R2 i.e.
-scoring = r2
-
-> For Random Forest, the best parameter:
-> - {'max_depth': 25, 'min_samples_split': 2, 'n_estimators': 100}
-
->For Extra Trees, the best paramter:
-> - {'max_depth': 25, 'min_samples_split': 5, 'n_estimators': 200}
-
-##### Model Ranking and Selection
-
-### Model Evaluation and Analysis
-
-#### Visual Evaluation
-<center>
-    <img src="https://user-images.githubusercontent.com/96771321/214905029-f0b2d05a-14f8-4ceb-a673-4c599aadd426.png" width="500" alt="cognitiveclass.ai logo" />
-</center>
-
-<center>
-    <img src="https://user-images.githubusercontent.com/96771321/214905092-078e2308-02b9-45cc-92e3-b2ce81cd6d58.png" width="500" alt="cognitiveclass.ai logo" />
-</center>
-
-<center>
-    <img src="https://user-images.githubusercontent.com/96771321/214905140-0b05e3c0-aab4-4404-999f-6c5f331f5fc4.png" width="500" alt="cognitiveclass.ai logo" />
-</center>
-
-
-#### Feature Importance
-Using 'model.feature_importances_' from the Extra Trees model we obtained the level of importances of each features towards prediction the price.
-
-<center>
-    <img src="https://user-images.githubusercontent.com/96771321/214904894-a92ca1dc-0189-4a84-adf2-1455d52c18d2.png" width="500" alt="cognitiveclass.ai logo" />
-</center>
-
-#### Final Result
-
-![download](https://user-images.githubusercontent.com/96771321/214904952-2142b55d-593b-4563-aa14-24bf2f44128e.jpg)
-
-From the above results and evaluations, the ExtraTrees model is the best for prediction the price of vehicles in the dataset.
+**Disclaimer**: The dataset used in this project is provided by AutoTrader and is for educational and non-commercial use only. Please adhere to the terms of use and avoid any commercial use without proper authorization.
