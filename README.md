@@ -53,9 +53,7 @@ The repository structure is as follows:
 To run the project, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Install the necessary dependencies, including Python
-
- and Jupyter Notebook.
+2. Install the necessary dependencies, including Python and Jupyter Notebook.
 3. Open the Jupyter Notebook (`Report.ipynb` or `notebook.ipynb`) using Jupyter Notebook software.
 4. Run each cell in the notebook sequentially to execute the code and generate the results.
 5. Follow the instructions provided in the notebook for data preprocessing, model training, and evaluation.
